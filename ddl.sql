@@ -1,4 +1,4 @@
-DROP DATABASE fantasy_football;
+# MySQL
 CREATE DATABASE fantasy_football;
 USE fantasy_football;
 
