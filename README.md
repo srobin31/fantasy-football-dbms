@@ -1,6 +1,4 @@
-# fantasy-football-dbms
-## CS 3200 Database Design Final Project
-## Fantasy Football DBMS
+## CS 3200 Database Design Final Project: Fantasy Football DBMS
 ### In This Repo
 - [description.pdf](https://github.com/srobin31/fantasy-football-dbms/blob/main/description.pdf): a detailed textual description of the problem: what entities are involved, how they relate/constrain each other, and what information needs to be extracted/presented
 - [erd.pdf](https://github.com/srobin31/fantasy-football-dbms/blob/main/erd.pdf): global ER diagram
