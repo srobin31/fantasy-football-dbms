@@ -16,7 +16,7 @@ Within a league is a set of teams, each managed by a user. A team belongs to a l
 As fantasy football is based on the actual production of real athletes, a table is needed containing every player that can be drafted to a fantasy team. Each player has a name, a position, an NFL team.
 
 ### 1.5 Roster
-A table is needed to keep track of which players are owned by which fantasy teams. A player can only be owned by one fantasy team per league, and teams can own at most 16 players.
+A table is needed to keep track of which players are owned by which fantasy teams. A player can only be owned by one fantasy team per league, and teams can own at most 17 players.
 
 ### 1.6 Weekly Lineup
 Each week, before a batch of football games are played, league members need to set their lineup, picking which of their rostered players will count towards earning them points. A weekly lineup should exist for each fantasy team and week, consisting of all the players selected for the lineup according to position slots. Any player selected for a lineup must be on the particular fantasy team's roster and cannot be in any particular week's lineup more than once.
