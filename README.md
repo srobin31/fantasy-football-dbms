@@ -5,8 +5,10 @@ A group of friends has approached me about moving their fantasy football league 
 
 
 A rough overview of the main entities/table organization can be found below. For a slightly more in depth look, look at [description.pdf](https://github.com/srobin31/fantasy-football-dbms/blob/main/description.pdf). This file also contains the tasks and reports implemented in [tasks.sql](https://github.com/srobin31/fantasy-football-dbms/blob/main/tasks.sql) and [reports.sql](https://github.com/srobin31/fantasy-football-dbms/blob/main/reports.sql) respectively.
-- [ddl.sql](https://github.com/srobin31/fantasy-football-dbms/blob/main/ddl.sql): SQL that instantiates the normalized relations in MySQL
-- [dml.sql](https://github.com/srobin31/fantasy-football-dbms/blob/main/dml.sql): SQL that populates the tables created in ddl.sql
+- [erd.pdf](https://github.com/srobin31/fantasy-football-dbms/blob/main/erd.pdf): global ER diagram
+- [logical.pdf](https://github.com/srobin31/fantasy-football-dbms/blob/main/logical.pdf): normalized relations with primary and foreign keys clearly identified
+- [ddl.sql](https://github.com/srobin31/fantasy-football-dbms/blob/main/ddl.sql): instantiates the normalized relations in MySQL
+- [dml.sql](https://github.com/srobin31/fantasy-football-dbms/blob/main/dml.sql): populates the tables created in ddl.sql
 
 ### 1.1 Users
 Anyone who wants to have a fantasy team on this platform or be a league commissioner must be registered as a user, proving their first and last name, an email address, and password.
