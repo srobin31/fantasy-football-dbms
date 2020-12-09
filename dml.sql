@@ -55,18 +55,20 @@ FROM
 	on h.matchup_id = a.matchup_id
 ORDER BY matchup_id;
 
+DELIMITER $$
+
 CREATE PROCEDURE insert_user(fname VARCHAR(20), lname VARCHAR(30), email VARCHAR(50), password VARCHAR(50))
 BEGIN
 	DECLARE salt VARCHAR(6) DEFAULT SUBSTRING(SHA1(RAND()), 1, 6);
 	DECLARE hash VARCHAR(40) DEFAULT SHA1(CONCAT(salt, password));
 	INSERT INTO user (first_name, last_name, email, password) VALUES (fname, lname, email, CONCAT(salt, hash));
-END;
+END$$
 
 CREATE TRIGGER fantasy_team_insert AFTER INSERT on fantasy_team
 	FOR EACH ROW
 		BEGIN
 			UPDATE league SET num_teams = num_teams + 1 WHERE league_id = NEW.league_id;
-		END;
+		END$$
 
 CREATE PROCEDURE add_fantasy_team(l_id INT, m_id INT, name VARCHAR(30), abbreviation VARCHAR(4))
 BEGIN
@@ -75,19 +77,19 @@ BEGIN
 	ELSE
 		INSERT INTO fantasy_team (league_id, manager, name, abbreviation) VALUES (l_id, m_id, name, abbreviation);
 	END IF;
-END;
+END$$
 
 CREATE TRIGGER roster_insert AFTER INSERT on roster
 	FOR EACH ROW
 		BEGIN
 			UPDATE fantasy_team SET roster_size = roster_size + 1 WHERE fantasy_team_id = NEW.fantasy_team_id;
-		END;
+		END$$
 
 CREATE TRIGGER roster_delete AFTER DELETE on roster
 	FOR EACH ROW
 		BEGIN
 			UPDATE fantasy_team SET roster_size = roster_size - 1 WHERE fantasy_team_id = OLD.fantasy_team_id;
-		END;
+		END$$
 
 CREATE PROCEDURE add_player(ft_id INT, p_id INT)
 BEGIN
@@ -96,13 +98,13 @@ BEGIN
 	ELSE
 		INSERT INTO roster (fantasy_team_id, player_id) VALUES (ft_id, p_id);
 	END IF;
-END;
+END$$
 
 CREATE PROCEDURE roster_transaction(ft_id INT, dropped_pid INT, added_pid INT)
 BEGIN
 	DELETE r FROM roster r join player p on r.player_id = p.player_id WHERE r.fantasy_team_id = ft_id and r.player_id = dropped_pid;
 	INSERT INTO roster (fantasy_team_id, player_id) VALUES (ft_id, added_pid);
-END;
+END$$
 
 CREATE PROCEDURE update_lineup(w INT, ft_id INT, pos INT, p_id INT)
 BEGIN
@@ -114,7 +116,9 @@ BEGIN
 	ELSE
 		SELECT CONCAT("Player ", p_id, "'s position does not match position slot ", pos) as ERROR;
 	END IF;
-END;
+END$$
+
+DELIMITER ;
 
 CALL insert_user("Shawn", "Robin", "sharob@gmail.com", "password");
 CALL insert_user("Daniel", "Ryvkin", "danryv@gamil.com", "p@ssword");
