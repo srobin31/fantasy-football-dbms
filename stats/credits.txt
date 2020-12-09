@@ -1,0 +1,3 @@
+D/ST Points Allowed: https://www.teamrankings.com/nfl/stat/opponent-points-per-game
+D/ST Yards Allowed: https://www.teamrankings.com/nfl/stat/opponent-yards-per-game
+Everything else: https://tools.thehuddle.com/weekly
