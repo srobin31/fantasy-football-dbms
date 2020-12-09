@@ -14,5 +14,5 @@
 6. Afterwards, navigate to where you saved the contents of this repo. Run ``python3 3200system.py`` and you should see the command line program running!
 
 ### Helpful Videos
-- [Annotated Walkthrough]()
-- [System Demo Video]()
+- [Annotated Walkthrough](https://youtu.be/qTXBvXdcuJE)
+- [System Demo Video](https://youtu.be/LKpBLgWqRVQ)
